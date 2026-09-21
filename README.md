@@ -26,6 +26,7 @@ mount(card, spec, { size: 64 });
   - `avatar.setSpec(spec)` swap character · `avatar.setOptions({ palette })` recolour ·
     `play()` / `pause()` / `destroy()`
 - `renderFrames(spec, options?)` → both frames as small canvases, for drawing into your own canvas.
+- `odds(spec)` → `{ chance, oneIn, by }`: how rare that exact combination is.
 
 Options (all optional):
 
@@ -60,3 +61,8 @@ Changes rebuild `src/parts/bank.ts`, which is what the package ships, so after e
 npm run dev      demo + editor + library on localhost:5173
 npm run build    compile to dist/ (rebuilds the part bank first)
 ```
+
+---
+
+**How rare is this guy?** `odds(avatar.spec)` → `{ chance, oneIn, by }`. Instant, no async, always
+matches the installed parts. `avatar.canvas` is the element, if you want it on click.

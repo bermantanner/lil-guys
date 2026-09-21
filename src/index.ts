@@ -1,4 +1,5 @@
 export { generate, type AvatarSpec } from './generate.js';
+export { odds, type Odds } from './odds.js';
 export { mount, renderFrame, renderFrames, DEFAULTS, type Avatar, type RenderOptions } from './render.js';
 export { parts, findPart, registerParts, removePart } from './parts/index.js';
 export { partFromJSON, drawShape, type PartJSON, type ShapeJSON, type ColorRef } from './parts/json.js';

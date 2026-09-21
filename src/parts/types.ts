@@ -9,6 +9,8 @@ export interface Part {
   draw?: (pen: Pen) => void;
 }
 
+export const weight = (p: Part): number => p.weight ?? 1;
+
 export type Category = 'hair' | 'eyes' | 'mouth' | 'eyewear';
 
 /** Also the draw order. */

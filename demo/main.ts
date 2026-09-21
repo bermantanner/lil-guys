@@ -1,4 +1,4 @@
-import { generate, mount, type Avatar, type AvatarSpec } from '../src/index.js';
+import { generate, mount, odds, type Avatar, type AvatarSpec } from '../src/index.js';
 import { palettePicker } from './palette.js';
 
 const heroEl = document.querySelector<HTMLElement>('#hero')!;
@@ -13,10 +13,14 @@ const palette = palettePicker(document.querySelector('#palette')!, (palette) => 
 
 const hero = mount(heroEl, generate(), { size: 256, palette: palette() });
 
+const pct = (p: number): string => `${(p * 100).toFixed(p < 0.1 ? 2 : 1)}%`;
+
 function describe(spec: AvatarSpec): string {
-  return (['hair', 'eyes', 'mouth', 'eyewear'] as const)
-    .map((k) => `${k}: <code>${spec[k]}</code>`)
-    .join('<br>');
+  const o = odds(spec);
+  const rows = (['hair', 'eyes', 'mouth', 'eyewear'] as const).map(
+    (k) => `${k}: <code>${spec[k]}</code> <small>${pct(o.by[k])}</small>`,
+  );
+  return [...rows, `odds: <code>${pct(o.chance)}</code> <small>1 in ${o.oneIn.toLocaleString()}</small>`].join('<br>');
 }
 
 function setHero(spec: AvatarSpec): void {
