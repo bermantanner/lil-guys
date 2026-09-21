@@ -1,7 +1,7 @@
 {
   "id": "beanie",
   "category": "hair",
-  "weight": 4,
+  "weight": 1.5,
   "front": [
     {
       "kind": "shape",
