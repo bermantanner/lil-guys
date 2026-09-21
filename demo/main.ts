@@ -1,11 +1,17 @@
 import { generate, mount, type Avatar, type AvatarSpec } from '../src/index.js';
+import { palettePicker } from './palette.js';
 
 const heroEl = document.querySelector<HTMLElement>('#hero')!;
 const heroSpecEl = document.querySelector<HTMLElement>('#hero-spec')!;
 const seedInput = document.querySelector<HTMLInputElement>('#seed')!;
 const gridEl = document.querySelector<HTMLElement>('#grid')!;
 
-const hero = mount(heroEl, generate(), { size: 256 });
+let gridAvatars: Avatar[] = [];
+const palette = palettePicker(document.querySelector('#palette')!, (palette) => {
+  for (const a of [hero, ...gridAvatars]) a.setOptions({ palette });
+});
+
+const hero = mount(heroEl, generate(), { size: 256, palette: palette() });
 
 function describe(spec: AvatarSpec): string {
   return (['hair', 'eyes', 'mouth', 'eyewear'] as const)
@@ -20,12 +26,11 @@ function setHero(spec: AvatarSpec): void {
 }
 setHero(hero.spec);
 
-let gridAvatars: Avatar[] = [];
 function reroll(): void {
   for (const a of gridAvatars) a.destroy();
   gridAvatars = [];
   for (let i = 0; i < 32; i++) {
-    const a = mount(gridEl, generate(), { size: 128 });
+    const a = mount(gridEl, generate(), { size: 128, palette: palette() });
     a.canvas.addEventListener('click', () => setHero(a.spec));
     gridAvatars.push(a);
   }

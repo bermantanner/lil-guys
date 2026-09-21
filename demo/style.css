@@ -41,3 +41,7 @@ legend { color: var(--muted); padding: 0 4px; text-transform: uppercase; letter-
 .grid canvas { display: block; }
 .grid figure { margin: 0; }
 .grid figcaption { font-size: 11px; color: var(--muted); margin-top: 4px; text-align: center; }
+
+#palette { margin: 0; }
+#palette .k { width: auto; }
+header #palette { margin-left: auto; }

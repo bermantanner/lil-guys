@@ -20,6 +20,7 @@ import {
   type Pt,
   type ShapeJSON,
 } from '../src/index.js';
+import { palettePicker } from './palette.js';
 
 type Layer = 'front' | 'back';
 type Tool = ShapeJSON['kind'];
@@ -275,19 +276,16 @@ function drawBoard(): void {
 // Previews
 
 const heroSpec = (): AvatarSpec => ({ seed: 'editor', ...NEUTRAL, [category()]: EDITING });
-const hero = mount($('#preview-hero'), heroSpec(), { size: 256 });
 let contexts: Avatar[] = [];
-
-const currentPalette = () => ({
-  base: $<HTMLInputElement>('#base-color').value,
-  ink: $<HTMLInputElement>('#ink-color').value,
+const palette = palettePicker($('#palette'), (palette) => {
+  for (const a of [hero, ...contexts]) a.setOptions({ palette });
 });
+const hero = mount($('#preview-hero'), heroSpec(), { size: 256, palette: palette() });
 
 function rerollContexts(): void {
   for (const a of contexts) a.destroy();
-  const palette = currentPalette();
   contexts = Array.from({ length: 4 }, () =>
-    mount($('#preview-ctx'), { ...generate(), [category()]: EDITING }, { size: 96, palette }),
+    mount($('#preview-ctx'), { ...generate(), [category()]: EDITING }, { size: 96, palette: palette() }),
   );
 }
 
@@ -546,14 +544,6 @@ $('#clear').addEventListener('click', () => {
   render();
 });
 $('#reroll').addEventListener('click', rerollContexts);
-
-for (const id of ['#base-color', '#ink-color']) {
-  $(id).addEventListener('input', () => {
-    const palette = currentPalette();
-    hero.setOptions({ palette });
-    for (const a of contexts) a.setOptions({ palette });
-  });
-}
 
 window.addEventListener('keydown', (e) => {
   const inField = (e.target as HTMLElement).matches('input, textarea, select');

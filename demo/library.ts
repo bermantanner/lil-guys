@@ -8,11 +8,15 @@ import {
   type Category,
   type PartJSON,
 } from '../src/index.js';
+import { palettePicker } from './palette.js';
 
 const NEUTRAL: Record<Category, string> = { hair: 'none', eyes: 'round', mouth: 'smile', eyewear: 'none' };
 const libEl = document.querySelector<HTMLElement>('#lib')!;
 const statusEl = document.querySelector<HTMLElement>('#status')!;
 let mounted: Avatar[] = [];
+const palette = palettePicker(document.querySelector('#palette')!, (palette) => {
+  for (const a of mounted) a.setOptions({ palette });
+});
 
 async function api(method: 'PUT' | 'DELETE', part: PartJSON): Promise<boolean> {
   const res = await fetch(`/__parts/${part.category}/${part.id}`, {
@@ -32,7 +36,7 @@ function card(part: PartJSON, total: number): HTMLElement {
   fig.className = 'card';
 
   const spec: AvatarSpec = { seed: `lib-${part.category}-${part.id}`, ...NEUTRAL, [part.category]: part.id };
-  mounted.push(mount(fig, spec, { size: 96 }));
+  mounted.push(mount(fig, spec, { size: 96, palette: palette() }));
 
   const cap = document.createElement('figcaption');
   cap.innerHTML = `<div class="id">${part.id}</div>`;
