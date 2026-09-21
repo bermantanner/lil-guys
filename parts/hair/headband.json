@@ -1,0 +1,20 @@
+{
+  "id": "headband",
+  "category": "hair",
+  "weight": 2,
+  "front": [
+    {
+      "kind": "stroke",
+      "color": "ink",
+      "width": 3,
+      "wobble": 0.7,
+      "points": [
+        [14, 24],
+        [22, 18],
+        [32, 16],
+        [42, 18],
+        [50, 24]
+      ]
+    }
+  ]
+}

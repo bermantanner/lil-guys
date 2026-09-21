@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Avatar demo</title>
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      .hero { display: flex; gap: 24px; align-items: flex-end; }
+      .meta { line-height: 1.6; }
+      .controls { display: flex; gap: 8px; margin: 16px 0 0; }
+      #grid canvas { cursor: pointer; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Avatar</h1>
+      <nav><a href="./library.html">library</a><a href="./editor.html">draw a part</a></nav>
+    </header>
+    <p>Seeded, two-frame, wobbly. Click any small one to make it the hero.</p>
+
+    <div class="hero">
+      <div id="hero"></div>
+      <div class="meta">
+        <div id="hero-spec"></div>
+        <div class="controls">
+          <input id="seed" type="text" placeholder="seed" spellcheck="false" />
+          <button id="load">Load seed</button>
+          <button id="reroll">Reroll all</button>
+        </div>
+      </div>
+    </div>
+
+    <h2>Random</h2>
+    <div id="grid" class="grid"></div>
+
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

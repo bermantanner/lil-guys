@@ -1,0 +1,47 @@
+{
+  "id": "cross",
+  "category": "eyes",
+  "weight": 1,
+  "front": [
+    {
+      "kind": "stroke",
+      "color": "ink",
+      "width": 2,
+      "wobble": 0.5,
+      "points": [
+        [22.5, 25.5],
+        [27.5, 30.5]
+      ]
+    },
+    {
+      "kind": "stroke",
+      "color": "ink",
+      "width": 2,
+      "wobble": 0.5,
+      "points": [
+        [27.5, 25.5],
+        [22.5, 30.5]
+      ]
+    },
+    {
+      "kind": "stroke",
+      "color": "ink",
+      "width": 2,
+      "wobble": 0.5,
+      "points": [
+        [36.5, 25.5],
+        [41.5, 30.5]
+      ]
+    },
+    {
+      "kind": "stroke",
+      "color": "ink",
+      "width": 2,
+      "wobble": 0.5,
+      "points": [
+        [41.5, 25.5],
+        [36.5, 30.5]
+      ]
+    }
+  ]
+}

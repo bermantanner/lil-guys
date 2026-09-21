@@ -1,0 +1,20 @@
+{
+  "id": "wavy",
+  "category": "mouth",
+  "weight": 1.5,
+  "front": [
+    {
+      "kind": "stroke",
+      "color": "ink",
+      "width": 2,
+      "wobble": 0.6,
+      "points": [
+        [27, 39],
+        [29.5, 37.8],
+        [32, 39.8],
+        [34.5, 37.8],
+        [37, 39]
+      ]
+    }
+  ]
+}

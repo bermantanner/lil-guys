@@ -1,0 +1,16 @@
+{
+  "id": "flat",
+  "category": "mouth",
+  "weight": 3,
+  "front": [
+    {
+      "kind": "stroke",
+      "color": "ink",
+      "width": 2.2,
+      "points": [
+        [28, 39],
+        [36, 39]
+      ]
+    }
+  ]
+}

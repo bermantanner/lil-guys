@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Avatar library</title>
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+      .card { background: #fff; border-radius: 8px; padding: 10px; }
+      .card canvas { margin: 0 auto; }
+      .card .id { text-align: center; margin: 8px 0 4px; }
+      .card .row { justify-content: center; margin: 4px 0; font-size: 11px; color: var(--muted); }
+      .card input[type=number] { width: 48px; padding: 3px 6px; font-size: 11px; }
+      .card .pct { width: 40px; }
+      .card button { font-size: 11px; padding: 3px 8px; }
+      .card.gone { opacity: 0.4; pointer-events: none; }
+      h2 a { font-weight: normal; text-transform: none; letter-spacing: 0; margin-left: 8px; }
+      #status { color: var(--muted); min-height: 1.5em; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Library</h1>
+      <nav><a href="./">demo</a><a href="./editor.html">draw a part</a></nav>
+    </header>
+    <p>
+      Everything the randomizer can pick from, one file each in <code>parts/&lt;category&gt;/&lt;id&gt;.json</code>.
+      Weights are relative within a category; the percentage is the chance of being picked.
+      Weight 0 keeps a part on file but never picks it.
+    </p>
+    <div id="status" class="hint"></div>
+    <main id="lib"></main>
+    <script type="module" src="./library.ts"></script>
+  </body>
+</html>

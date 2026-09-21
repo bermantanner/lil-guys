@@ -1,0 +1,27 @@
+{
+  "id": "squint",
+  "category": "eyes",
+  "weight": 1.5,
+  "front": [
+    {
+      "kind": "stroke",
+      "color": "ink",
+      "width": 2.2,
+      "wobble": 0.5,
+      "points": [
+        [21.5, 28],
+        [28.5, 28]
+      ]
+    },
+    {
+      "kind": "stroke",
+      "color": "ink",
+      "width": 2.2,
+      "wobble": 0.5,
+      "points": [
+        [35.5, 28],
+        [42.5, 28]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "id": "square",
+  "category": "eyewear",
+  "weight": 8,
+  "front": [
+    {
+      "kind": "stroke",
+      "color": "ink",
+      "width": 1.8,
+      "closed": true,
+      "wobble": 0.6,
+      "points": [
+        [20, 23.8],
+        [25, 23.8],
+        [30, 23.8],
+        [30, 28],
+        [30, 32.3],
+        [25, 32.3],
+        [20, 32.3],
+        [20, 28]
+      ]
+    },
+    {
+      "kind": "stroke",
+      "color": "ink",
+      "width": 1.8,
+      "closed": true,
+      "wobble": 0.6,
+      "points": [
+        [34, 23.8],
+        [39, 23.8],
+        [44, 23.8],
+        [44, 28],
+        [44, 32.3],
+        [39, 32.3],
+        [34, 32.3],
+        [34, 28]
+      ]
+    },
+    {
+      "kind": "stroke",
+      "color": "ink",
+      "width": 1.8,
+      "wobble": 0.6,
+      "points": [
+        [30, 27.5],
+        [34, 27.5]
+      ]
+    },
+    {
+      "kind": "stroke",
+      "color": "ink",
+      "width": 1.8,
+      "wobble": 0.6,
+      "points": [
+        [20, 27.5],
+        [15.5, 26]
+      ]
+    },
+    {
+      "kind": "stroke",
+      "color": "ink",
+      "width": 1.8,
+      "wobble": 0.6,
+      "points": [
+        [44, 27.5],
+        [48.5, 26]
+      ]
+    }
+  ]
+}

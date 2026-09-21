@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Avatar editor</title>
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      .layout { display: grid; grid-template-columns: 512px 300px minmax(300px, 1fr); gap: 24px; align-items: start; }
+      @media (max-width: 1180px) { .layout { grid-template-columns: 1fr; } }
+      #board { display: block; cursor: crosshair; touch-action: none; }
+      .hint { margin-top: 8px; }
+      input[type=text], select { flex: 1; min-width: 0; }
+      input[type=range] { flex: 1; min-width: 80px; }
+      .out { font-size: 11px; color: var(--muted); width: 28px; text-align: right; flex: none; }
+      ol#shapes { list-style: none; padding: 0; margin: 0 0 6px; max-height: 180px; overflow: auto; }
+      ol#shapes:empty::before { content: 'nothing drawn yet'; color: var(--muted); padding: 4px 6px; display: block; }
+      ol#shapes li { display: flex; justify-content: space-between; align-items: center; padding: 3px 6px; border-radius: 4px; cursor: pointer; }
+      ol#shapes li:hover { background: #fff; }
+      ol#shapes li.selected { background: #fff; outline: 1px solid var(--accent); }
+      ol#shapes li button { padding: 0 6px; border: none; background: none; color: var(--muted); }
+      #preview-ctx { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+      #status { color: var(--muted); }
+      #status.error { color: var(--danger); }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Avatar editor</h1>
+      <nav><a href="./">demo</a><a href="./library.html">library</a></nav>
+    </header>
+    <div class="layout">
+      <section>
+        <canvas id="board"></canvas>
+        <div class="hint">
+          Drag to draw. Blue = ink, dark = base, grey = the rest of the face.
+          Select a shape in the list to drag its points. ⌫ deletes, ⌘Z undoes, Esc deselects.
+        </div>
+      </section>
+
+      <section>
+        <fieldset>
+          <legend>Part</legend>
+          <div class="row"><span class="k">category</span>
+            <select id="category">
+              <option value="hair">hair / hat</option>
+              <option value="eyes">eyes</option>
+              <option value="mouth">mouth</option>
+              <option value="eyewear">eyewear</option>
+            </select>
+          </div>
+          <div class="row"><span class="k">id</span><input id="id" type="text" value="untitled" spellcheck="false" /></div>
+          <div class="row"><span class="k">weight</span><input id="weight" type="number" value="1" min="0" step="0.5" /></div>
+          <div class="row"><span class="k">open</span><select id="open"><option value="">from library…</option></select></div>
+          <div class="row"><span class="k"></span><button id="save">save to library</button><button id="new">new</button></div>
+          <div id="status" class="row"></div>
+        </fieldset>
+
+        <fieldset id="props">
+          <legend>Shape</legend>
+          <div class="row"><span class="k">tool</span>
+            <label><input type="radio" name="tool" value="stroke" checked /> line</label>
+            <label><input type="radio" name="tool" value="fill" /> fill</label>
+            <label title="filled in this colour, outlined in the other"><input type="radio" name="tool" value="shape" /> outlined</label>
+          </div>
+          <div class="row"><span class="k">color</span>
+            <label><input type="radio" name="color" value="ink" checked /> ink</label>
+            <label><input type="radio" name="color" value="base" /> base</label>
+          </div>
+          <div class="row"><span class="k">layer</span>
+            <label><input type="radio" name="layer" value="front" checked /> front</label>
+            <label><input type="radio" name="layer" value="back" /> behind head</label>
+          </div>
+          <div class="row"><span class="k">width</span><input id="width" type="range" min="0.5" max="5" step="0.1" value="2" /><span class="out" id="width-out"></span></div>
+          <div class="row"><span class="k">wobble</span><input id="wobble" type="range" min="0" max="2" step="0.1" value="1" /><span class="out" id="wobble-out"></span></div>
+          <div class="row"><span class="k">simplify</span><input id="simplify" type="range" min="0.2" max="3" step="0.1" value="1" /><span class="out" id="simplify-out"></span></div>
+          <div class="row"><span class="k"></span>
+            <label><input id="closed" type="checkbox" /> closed</label>
+            <label><input id="sharp" type="checkbox" /> sharp corners</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Shapes</legend>
+          <ol id="shapes"></ol>
+          <div class="row"><button id="undo">undo</button><button id="delete">delete</button><button id="clear">clear</button></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Palette</legend>
+          <div class="row">
+            <span class="k">base</span><input id="base-color" type="color" value="#111111" />
+            <span class="k" style="width:auto">ink</span><input id="ink-color" type="color" value="#ffffff" />
+          </div>
+        </fieldset>
+      </section>
+
+      <section class="previews">
+        <div id="preview-hero"></div>
+        <div id="preview-ctx"></div>
+        <div class="row"><button id="reroll">reroll contexts</button></div>
+      </section>
+    </div>
+    <script type="module" src="./editor.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "id": "party",
+  "category": "hair",
+  "weight": 2,
+  "front": [
+    {
+      "kind": "shape",
+      "color": "base",
+      "line": "ink",
+      "sharp": true,
+      "points": [
+        [23, 18],
+        [32, 0],
+        [41, 18]
+      ]
+    },
+    {
+      "kind": "stroke",
+      "color": "ink",
+      "width": 1.5,
+      "points": [
+        [26, 12],
+        [36, 7]
+      ]
+    }
+  ]
+}
