@@ -5,7 +5,7 @@
   "front": [
     {
       "kind": "stroke",
-      "color": "ink",
+      "color": "base",
       "width": 2,
       "points": [
         [42.3, 15.9],
@@ -17,7 +17,7 @@
     },
     {
       "kind": "stroke",
-      "color": "ink",
+      "color": "base",
       "width": 2,
       "points": [
         [44.7, 12.9],
@@ -31,7 +31,7 @@
     },
     {
       "kind": "stroke",
-      "color": "ink",
+      "color": "base",
       "width": 2,
       "points": [
         [42.8, 16.5],
@@ -40,7 +40,7 @@
     },
     {
       "kind": "stroke",
-      "color": "ink",
+      "color": "base",
       "width": 2,
       "points": [
         [46, 19.9],
@@ -49,6 +49,120 @@
         [55.7, 21.8],
         [53.5, 19.5],
         [48.7, 18.1]
+      ]
+    },
+    {
+      "kind": "stroke",
+      "color": "ink",
+      "width": 2,
+      "points": [
+        [44.3, 15.9],
+        [45.8, 17.4]
+      ]
+    },
+    {
+      "kind": "stroke",
+      "color": "ink",
+      "width": 2,
+      "points": [
+        [46, 15.2],
+        [45.1, 15]
+      ]
+    },
+    {
+      "kind": "stroke",
+      "color": "ink",
+      "width": 2,
+      "points": [
+        [47, 16.9],
+        [46.5, 15.1]
+      ]
+    },
+    {
+      "kind": "stroke",
+      "color": "ink",
+      "width": 2,
+      "points": [
+        [48, 20.3],
+        [52.4, 26],
+        [54.1, 21.3],
+        [48.1, 20.2]
+      ]
+    },
+    {
+      "kind": "stroke",
+      "color": "ink",
+      "width": 2,
+      "points": [
+        [51.5, 22.2],
+        [52.6, 24],
+        [52.9, 21.9],
+        [49, 22.7]
+      ]
+    },
+    {
+      "kind": "stroke",
+      "color": "ink",
+      "width": 2,
+      "points": [
+        [50.8, 25.1],
+        [49.5, 23.4]
+      ]
+    },
+    {
+      "kind": "stroke",
+      "color": "ink",
+      "width": 2,
+      "points": [
+        [38.8, 12],
+        [38.2, 8.3]
+      ]
+    },
+    {
+      "kind": "stroke",
+      "color": "ink",
+      "width": 2,
+      "points": [
+        [42.3, 12.9],
+        [39.4, 9]
+      ]
+    },
+    {
+      "kind": "stroke",
+      "color": "ink",
+      "width": 2,
+      "points": [
+        [40.9, 12.7],
+        [39.4, 12]
+      ]
+    },
+    {
+      "kind": "stroke",
+      "color": "ink",
+      "width": 2,
+      "points": [
+        [37.8, 8.4],
+        [37.5, 12.2],
+        [42, 13.4]
+      ]
+    },
+    {
+      "kind": "stroke",
+      "color": "ink",
+      "width": 2,
+      "points": [
+        [38.5, 8.1],
+        [41.4, 9],
+        [39.7, 7.9]
+      ]
+    },
+    {
+      "kind": "stroke",
+      "color": "ink",
+      "width": 2,
+      "points": [
+        [42.7, 12.5],
+        [42, 9.7]
       ]
     }
   ]
