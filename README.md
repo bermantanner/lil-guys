@@ -1,8 +1,6 @@
 # lil-guys
 
-Little wobbly cartoon heads. Pick a seed, get a character; no seed, get a random one.
-Two frames drawn with slightly different jitter swap back and forth, so it "boils" like a
-hand-drawn cartoon. No dependencies, transparent background, one canvas.
+lil wobbly dudes
 
 ```
 npm install github:bermantanner/lil-guys
